@@ -1,5 +1,7 @@
 const User = require("../Models/User");
 const bcr = require("bcrypt");
+const jwt = require("jsonwebtoken")
+require('dotenv').config()
 exports.signup = (req, res, next) => {
   const emailId = req.body.emailId;
   User.findOne({ emailId: emailId })
@@ -79,7 +81,7 @@ exports.userLogin =  (req, res, next)=>{
                   {
                       emailId: doc.emailId,
                       userName: doc.userName
-                  },'secret_key', {expiresIn: "1h"})
+                  },process.env.myKey, {expiresIn: "1h"})
               return res.status(200).json({Message: 'Auth Successful', Token: token})
               }
               res.status(409).json({Message: 'Wrong Password!'})
