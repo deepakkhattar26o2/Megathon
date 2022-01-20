@@ -1,7 +1,8 @@
 const User = require("../Models/User");
 const bcr = require("bcrypt");
-const jwt = require("jsonwebtoken")
+const jwt = require('jsonwebtoken')
 require('dotenv').config()
+
 exports.signup = (req, res, next) => {
   const emailId = req.body.emailId;
   User.findOne({ emailId: emailId })
@@ -91,5 +92,20 @@ exports.userLogin =  (req, res, next)=>{
       res.status(500).json({
           Message: err.message
       })
+  })
+}
+
+exports.getAll = (req, res, next)=>{
+  User.find().select('userName emailId').exec().then(
+      docs=>{
+          if(docs.length<1){
+              return res.status(409).json({
+                  Message: 'No Users Found!'
+              })
+          }
+          res.status(200).json(docs)
+      }
+  ).catch(err=>{
+      res.status(500).json({Message: err.message})
   })
 }
