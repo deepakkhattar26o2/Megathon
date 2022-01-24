@@ -13,7 +13,8 @@
     "body-parser": "^1.19.1",
     "dotenv": "^13.0.1",
     "express": "^4.17.2",
-    "json-web-token": "^3.2.0",
-    "mongoose": "^6.1.6"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.6",
+    "valid-url": "^1.0.9"
   }
 }
