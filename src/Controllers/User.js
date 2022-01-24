@@ -109,3 +109,25 @@ exports.getAll = (req, res, next)=>{
       res.status(500).json({Message: err.message})
   })
 }
+
+exports.updateProfile = (req, res, next) => {
+  const updateObject = req.body
+  bcr.hash(updateObject.password, 10,(err, hash)=>{
+    if(err){
+      return res.status(500).json({Message: err.message})
+    }
+    updateObject.password = hash
+    User.updateOne({ userName: req.params.name}, { $set: updateObject })
+    .exec()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).json({
+        error: err,
+      });
+      console.log(err);
+    });
+  })
+  
+}
