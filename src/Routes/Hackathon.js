@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const hackathonController = require('../Controllers/Hackathon')
-const auth = require('../middleware/auth')
+const auth = require('../middleware/check-auth')
 
 router.post("/create", auth, hackathonController.createOne);
 
