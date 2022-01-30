@@ -8,12 +8,6 @@ const blogRouter = require('./src/Routes/Blog')
 dbConnect();
 app.use(bodyParser.json())
 
-app.get('/', (req, res, next)=>{
-    res.status(200).json({
-        Message: 'Nothing To See Here Buoy!'
-    })
-})
-
 app.use('/user', userRoute)
 
 app.use('/hackathon', hackathonRouter)
