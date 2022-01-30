@@ -5,7 +5,7 @@ const auth = require('../middleware/auth')
 
 router.post("/create", auth, hackathonController.createOne);
 
-router.get('/', auth, hackathonController.getAll);
+router.get('/', hackathonController.getAll);
 
 router.delete('/delete/', auth, hackathonController.deleteOne)
 
