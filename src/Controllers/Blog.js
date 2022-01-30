@@ -1,5 +1,4 @@
 const Blog = require("../Models/blog");
-const auth = require("../middleware/auth");
 const User = require("../Models/User");
 
 exports.createBlog = (req, res, next) => {
