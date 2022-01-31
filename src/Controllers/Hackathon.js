@@ -65,3 +65,36 @@ exports.deleteOne = (req, res, next)=>{
         }
     )
 }
+
+exports.updateOne = (req, res, next)=>{
+  const updateObject = req.body
+  Hackathon.updateOne({name: req.params.name}, {$set: updateObject}).exec()
+  .then(
+      doc=>{
+          if(!doc){
+              return res.status(404).json({Message: 'Hackathon Not Found!'})
+          }
+          res.status(200).json(doc)
+      }
+  ).catch(
+      err=>{
+          res.status(500).json({Message : err.message})
+      }
+  )
+
+}
+
+exports.getOne = (req, res, next)=>{
+  Hackathon.findOne({name: req.params.name}).exec().then(
+      doc=>{
+          if(!doc){
+              return res.status(404).json({Message: 'Hackathon Not Found!'})
+          }
+          res.status(200).json(doc)
+      }
+  ).catch(
+      err=>{
+          res.status(500).json({Message: err.message})
+      }
+  )
+}
