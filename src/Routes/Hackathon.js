@@ -7,6 +7,10 @@ router.post("/create", auth, hackathonController.createOne);
 
 router.get('/', hackathonController.getAll);
 
+router.get('/:name', hackathonController.getOnes)
+
+router.patch('/update/:name', auth, hackathonController.updateOne)
+
 router.delete('/delete/', auth, hackathonController.deleteOne)
 
 module.exports = router;
