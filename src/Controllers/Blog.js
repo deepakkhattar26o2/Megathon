@@ -82,3 +82,18 @@ exports.deleteByTitle = (req, res, next)=>{
     }
   )
 }
+
+exports.updateOne =  (req, res, next)=>{
+  Blog.updateOne({title: req.params.title}, {$set: req.body}).exec().then(
+      doc=>{
+          if(!doc){
+              return res.status(404).json({Message: 'Blog Not Found!!'})
+          }
+          res.status(200).json(doc)
+      }
+  ).catch(
+      err=>{
+          res.status(500).json({Message: err.message})
+      }
+  )
+}
