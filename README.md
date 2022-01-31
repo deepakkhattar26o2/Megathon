@@ -1,6 +1,6 @@
 # Megathon-API
 
-API For an Ongoing Personal Project( An App That Lets You View And List Upcoming/Ongoing Hackathons).
+API For an Ongoing Personal Project( An App That Lets You View And Enlist Upcoming/Ongoing Hackathons And Create Tech Blogs).
 
 # Getting Started
 
