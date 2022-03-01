@@ -1,6 +1,6 @@
 # Megathon-API
 
-API For An On-Hold Project(An App That Lets You View And Enlist Upcoming/Ongoing Hackathons And Create Tech Blogs).
+API For An App That Lets You View And Enlist Upcoming/Ongoing Hackathons And Create Tech Blogs.
 
 # Getting Started
 
